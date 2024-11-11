@@ -1,0 +1,19 @@
+#!/usr/bin/env groovy
+// This file manages the CI jobs for a Raptor Application
+// The latest documentation can always be found in https://go/epx-raptor-pipeline
+
+// noinspection GroovyUnusedAssignment
+@Library('raptorPipeline')_ // always use the latest
+
+raptorBuildPipeline {
+  disableSonarQubeStage = true
+
+  enablePublishStage = true
+  publishFromBranches = ['master', 'develop']
+  mainBranch = 'master'
+  integrationBranch = 'develop'
+
+  publishSteps =  [
+    '${MVN_PATH}/mvn -DskipTests -DskipITs -B deploy -Dmaven.repo.local=${M2_REPO}'
+  ]
+}

@@ -1,0 +1,39 @@
+apptype: raptor3
+appname: cfbtmanagementserv
+
+unit-test:
+  code_coverage:
+    modules: cfbtmanagementservService
+  test_report:
+    report_files: 'cfbtmanagementservFunctionalTests/target/surefire-reports/TEST*xml'
+
+
+functional-test:
+  params:
+    pom:
+      default: cfbtmanagementservFunctionalTests/pom.xml
+    testsuite:
+      default: src/test/resources/Suites/{size}Suite.xml
+    port:
+      default: 18763
+    retries:
+      default: 0
+    maven-phase:
+      default: 'clean verify'
+
+  run:
+    environment:
+      - MAVEN_OPTS: "'-Xms1024m -Xmx3000m'"
+    additional_params:
+      - -Dprotocol=https
+      - -Dmanaged_stage={stage-host}
+      - -DJAWS_HOSTNAME={stage-host}
+      - -DstageName={stage-host}
+      - -Dfailsafe.suiteXmlFiles={testsuite}
+      - -DCI_ENVIRONMENT="CI"
+      - -Dkeymaker.test.appname=cfbtmanagementserv
+      - -Dcobertura.skip=true
+      - -Denforcer.skip=true
+      - -DskipTests=false
+      - --fail-never
+      - -Dmaven.test.failure.ignore=true

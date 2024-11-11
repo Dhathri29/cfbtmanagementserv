@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+	<type>Service</type>
+	<public>false</public>
+	<organization>paypal</organization>
+	<!-- Mandatory field -->
+	<description>Required for application registration and deploy to QA/Prod</description>
+	<name>cfbtmanagementserv</name>
+	<lifecycleState>Deployed</lifecycleState>
+	<urlStrategy></urlStrategy>
+	<page-Map>
+		<page>
+			<name>DefaultPage</name>
+			<description>This default page that will be inserted for every application. The page id of the default page will be used
+	        for every page that is not registered with AR during development</description>
+			<!-- Mandatory field -->
+			<lifecycleState>Deployed</lifecycleState>
+			<isAjax>false</isAjax>
+			<isDefault>true</isDefault>
+			<security>
+				<authentication>L1AUTH</authentication>
+				<authorization>true</authorization>
+				<roleId>true</roleId>
+			</security>
+		</page>
+	</page-Map>
+	<webService-List>
+		<webService>
+			<description>CFBT Test Execution Management Service</description>
+			<lifecycleState>Deployed</lifecycleState>
+			<name>v1.cfbtmanagementserv</name>
+			<svcMapping-List>
+				<svcMapping>/v1/cfbtmanagementserv/</svcMapping>
+			</svcMapping-List>
+		</webService>
+	</webService-List>
+	<!-- Optional field: true if your application invokes services that require an IAFToken -->
+	<secureService>true</secureService>
+</application>

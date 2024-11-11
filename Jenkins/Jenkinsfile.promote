@@ -1,0 +1,11 @@
+#!/usr/bin/env groovy
+// Jenkins/Jenkinsfile.promote
+// This file manages the release jobs a Raptor Application
+// The latest documentation can always be found in https://go/epx-raptor-pipeline
+
+// noinspection GroovyUnusedAssignment
+@Library('raptorPipeline')_ // always use the latest
+
+raptorManifestPromotionPipeline {
+  disableSonarQubeStage = true
+}

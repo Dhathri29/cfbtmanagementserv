@@ -1,0 +1,10 @@
+#!/usr/bin/env groovy
+// This file manages the CI jobs for a Raptor Application
+// The latest documentation can always be found in https://go/epx-raptor-pipeline
+
+// noinspection GroovyUnusedAssignment
+@Library('raptorPipeline')_ // always use the latest
+
+raptorGitflowReleasePipeline {
+  disableSonarQubeStage = true
+}

@@ -1,0 +1,12 @@
+# Dev CAL settings
+
+# This file must be present in the app source.  If the file is moved to a dependency library,
+# the app name placeholder will not be replaced with the app name at build time,
+# and CAL logs will not be written to the correct pool name.
+
+Environment: paypal
+
+# Pool name must be set to app name placeholder for app family to work in Dev environment
+PoolName: ${appName}
+
+SiteViewAddr: mscal.qa.paypal.com

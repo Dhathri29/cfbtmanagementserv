@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="CFBT Rest Service Automation mini Test Suite for CFBTMANAGEMENTSERV">
+    <test name="CFBTMANAGEMENTSERV">
+        <groups>
+            <run>
+                <include name="mini"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.paypal.test.sre.cfbt.api.CFBTTestRestApiTestsOperation"/>
+        </classes>
+    </test>
+</suite>
